@@ -1,0 +1,58 @@
+.parent{
+  background-color: black;
+  height:400px;
+  width:400px;
+}
+.child{
+  background-color: red;
+  height:50%;
+  width:50%;
+  /* Transition can be followed by the property to transform It can also have a delay and a timing function
+  
+  Dubic Bezier gives its own weird move
+  */
+  transition:  3s ease-in; 
+}
+.parent:hover .child{
+  transform: translateX(100%);
+  background-color: blue;
+}
+
+.csalad{
+  background-color: black;
+  height:400px;
+  width:400px;
+  margin-top:100px;
+}
+.gyerek{
+    background-color: green;
+  height:50%;
+  width:50%;
+  animation:moveIt 3s ease-in forwards infinite alternate;
+  /* transition:3s ease-in; */
+}
+
+.csalad:hover .gyerek{
+  /* transform: translateX(100%); */
+  /* Forwards means stay there while true */
+  /* animation:moveIt 3s ease-in forwards infinite alternate; */
+  animation-play-state: paused;
+}
+
+@keyframes moveIt{
+  0%{
+    transform:translateX(0);
+  }
+  25%{
+    transform:translateY(100%);
+  }
+  50%{
+    transform:translateX(100%) translateY(100%);
+  }
+  75%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform:translateX(0);
+  }
+}
